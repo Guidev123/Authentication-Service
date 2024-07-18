@@ -24,20 +24,20 @@ namespace Authenticate.Infra.Mappings
                     .HasColumnName("Email").HasMaxLength(255).IsRequired();
 
             builder.OwnsOne(x => x.Email).OwnsOne(x => x.EmailVerification).Property(x => x.Code)
-                    .HasColumnName("EmailVerificationCode").IsRequired();
+                    .HasColumnName("EmailVerificationCode").HasMaxLength(255).IsRequired();
 
             builder.OwnsOne(x => x.Email).OwnsOne(x => x.EmailVerification).Property(x => x.ExpiresAt)
-                    .HasColumnName("EmailExpiresAt").IsRequired(false);
+                    .HasColumnName("EmailExpiresAt").HasMaxLength(255).IsRequired(false);
 
             builder.OwnsOne(x => x.Email).OwnsOne(x => x.EmailVerification).Property(x => x.VerifiedAt)
-                    .HasColumnName("EmailVerifiedAt").IsRequired(false);
+                    .HasColumnName("EmailVerifiedAt").HasMaxLength(255).IsRequired(false);
 
             builder.OwnsOne(x => x.Email).OwnsOne(x => x.EmailVerification).Ignore(x => x.IsActive);
 
 
-            builder.OwnsOne(x => x.Password).Property(x => x.Hash).HasColumnName("PasswordHash").IsRequired();
+            builder.OwnsOne(x => x.Password).Property(x => x.Hash).HasColumnName("PasswordHash").HasMaxLength(255).IsRequired();
 
-            builder.OwnsOne(x => x.Password).Property(x => x.ResetCode).HasColumnName("PasswordResetCode").IsRequired();
+            builder.OwnsOne(x => x.Password).Property(x => x.ResetCode).HasColumnName("PasswordResetCode").HasMaxLength(255).IsRequired();
         }
     }
 }
