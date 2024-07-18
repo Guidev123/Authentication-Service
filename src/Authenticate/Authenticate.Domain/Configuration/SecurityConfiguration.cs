@@ -15,6 +15,7 @@ namespace Authenticate.Domain.Configuration
             public static string ApiKey { get; set; } = string.Empty;
             public static string JwtPrivateKey { get; set; } = string.Empty;
             public static string PasswordSaltKey { get; set; } = string.Empty;
+            public static string ConnectionString { get; set;} = string.Empty;
         }
     }
 }
