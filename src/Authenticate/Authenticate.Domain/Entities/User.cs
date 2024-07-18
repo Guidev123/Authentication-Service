@@ -1,6 +1,6 @@
 ﻿using Authenticate.Domain.AccountContext.ValueObjects;
 using Authenticate.Domain.ValueObjects;
-using HealthManager.Core.Entities;
+using HealthManager.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +12,7 @@ namespace Authenticate.Domain.Entities
     public class User : Entity
     {
 
-        protected User()
-        {
-        }
-
+        protected User(){   }
         public User(string name, Email email, Password password)
         {
             Name = name;

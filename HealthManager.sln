@@ -21,11 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authenticate.API", "src\Aut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authenticate.Infra", "src\Authenticate\Authenticate.Infra\Authenticate.Infra.csproj", "{50CBC251-FF1B-458D-917F-4EB28F5EF1C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{67B6B6C0-63E3-4779-B476-D0E7D7DC7369}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authenticate.Domain", "src\Authenticate\Authenticate.Domain\Authenticate.Domain.csproj", "{22634147-C328-4AFE-91A5-2664AB628C0E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthManager.Core", "src\Core\HealthManager.Core\HealthManager.Core.csproj", "{8CD6F90E-F39F-4557-8A82-D0204C2FC000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +53,6 @@ Global
 		{22634147-C328-4AFE-91A5-2664AB628C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22634147-C328-4AFE-91A5-2664AB628C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22634147-C328-4AFE-91A5-2664AB628C0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CD6F90E-F39F-4557-8A82-D0204C2FC000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CD6F90E-F39F-4557-8A82-D0204C2FC000}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CD6F90E-F39F-4557-8A82-D0204C2FC000}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CD6F90E-F39F-4557-8A82-D0204C2FC000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,9 +66,7 @@ Global
 		{2CF2B005-DF49-4112-99AB-424F740A41ED} = {34198975-00EE-4116-B7D6-7AF0FED7F2DA}
 		{67063597-1229-44F6-B6FE-9DECA27A3E83} = {084E2E4B-B277-49D0-AEA6-ECCFBEACD62A}
 		{50CBC251-FF1B-458D-917F-4EB28F5EF1C1} = {084E2E4B-B277-49D0-AEA6-ECCFBEACD62A}
-		{67B6B6C0-63E3-4779-B476-D0E7D7DC7369} = {40ACF402-8B01-4FE4-B51F-066AB060B803}
 		{22634147-C328-4AFE-91A5-2664AB628C0E} = {084E2E4B-B277-49D0-AEA6-ECCFBEACD62A}
-		{8CD6F90E-F39F-4557-8A82-D0204C2FC000} = {67B6B6C0-63E3-4779-B476-D0E7D7DC7369}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5923B614-8AF0-4F90-AD9E-8589FAF61F5A}

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthManager.Core.ValueObjects
+namespace HealthManager.Domain.ValueObjects
 {
     public abstract class ValueObject 
     {

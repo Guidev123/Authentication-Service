@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthManager.Core.Extensions
+namespace HealthManager.Domain.Extensions
 {
     public static class StringExtension
     {

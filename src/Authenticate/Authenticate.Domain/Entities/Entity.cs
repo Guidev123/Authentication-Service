@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthManager.Core.Entities
+namespace HealthManager.Domain.Entities
 {
     public abstract class Entity : IEquatable<Guid>
     {
