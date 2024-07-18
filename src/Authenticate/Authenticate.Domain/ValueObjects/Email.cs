@@ -1,7 +1,6 @@
-﻿using Authenticate.Domain.SharedContext.Extensions;
-using Authenticate.Domain.SharedContext.ValueObjects;
-using Authenticate.Domain.ValueObjects;
+﻿using Authenticate.Domain.ValueObjects;
 using HealthManager.Core.Extensions;
+using HealthManager.Core.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

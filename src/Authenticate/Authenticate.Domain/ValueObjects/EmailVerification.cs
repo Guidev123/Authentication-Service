@@ -9,7 +9,7 @@ namespace Authenticate.Domain.ValueObjects
     public class EmailVerification
     {
         public EmailVerification() { }  //EF CTOR
-        protected string Code { get; } = Guid.NewGuid().ToString("N")[..6].ToUpper();
+        public string Code { get; } = Guid.NewGuid().ToString("N")[..6].ToUpper();
         public DateTime? ExpiresAt { get; private set; } = DateTime.UtcNow.AddMinutes(10);
         public DateTime? VerifiedAt { get; private set; } = null;
         public bool IsActive => VerifiedAt != null && ExpiresAt == null;
