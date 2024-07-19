@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Authenticate.Domain.ValueObjects
 {
-    public class EmailVerification
+    public class EmailVerification : ValueObject
     {
         public EmailVerification() { }  //EF CTOR
         public string Code { get; } = Guid.NewGuid().ToString("N")[..6].ToUpper();

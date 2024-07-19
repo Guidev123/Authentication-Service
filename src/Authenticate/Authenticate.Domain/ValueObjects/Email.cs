@@ -1,6 +1,5 @@
 ﻿using Authenticate.Domain.ValueObjects;
 using HealthManager.Domain.Extensions;
-using HealthManager.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ namespace Authenticate.Domain.AccountContext.ValueObjects
     public partial class Email : ValueObject
     {
         private const string PATTERN = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-
         public Email(string address)
         {
             Address = address.Trim().ToLower();
@@ -26,18 +24,13 @@ namespace Authenticate.Domain.AccountContext.ValueObjects
         public string Address { get; }
         public string Hash => Address.ToBase64();
         public EmailVerification EmailVerification { get; private set; } = new();
+        public void ReseTVerification() => EmailVerification = new EmailVerification();
 
-        public void ReseTVerification()
-            => EmailVerification = new EmailVerification();
+        public static implicit operator string(Email email) => email.ToString();
 
-        public static implicit operator string(Email email)
-            => email.ToString();
+        public static implicit operator Email(string address) => new(address);
 
-        public static implicit operator Email(string address)
-            => new(address);
-
-        public override string ToString()
-            => Address;
+        public override string ToString() => Address;
 
         [GeneratedRegex(PATTERN)]
         private static partial Regex EmailRegex();

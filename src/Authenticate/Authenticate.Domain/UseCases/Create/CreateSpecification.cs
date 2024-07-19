@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Authenticate.Domain.ValueObjects
+namespace Authenticate.Domain.UseCases.Create
 {
-    public abstract class ValueObject
+    public class CreateSpecification
     {
     }
 }

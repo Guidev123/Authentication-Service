@@ -1,5 +1,4 @@
 ﻿using Authenticate.Domain.Configuration;
-using HealthManager.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
