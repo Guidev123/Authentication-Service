@@ -1,5 +1,6 @@
 ﻿using Authenticate.Domain.Entities;
 using Authenticate.Domain.Notifications;
+using Flunt.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Authenticate.Domain.UseCases.Create
     {
         protected CreateResponse(){ }
 
-        public CreateResponse(string message, int status, List<Notification>? notifications = null)
+        public CreateResponse(string message, int status, IEnumerable<Notification>? notifications = null)
         {
             Message = message;
             Status = status;
