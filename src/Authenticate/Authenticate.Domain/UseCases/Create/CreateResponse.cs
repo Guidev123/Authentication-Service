@@ -1,11 +1,4 @@
-﻿using Authenticate.Domain.Entities;
-using Authenticate.Domain.Notifications;
-using Flunt.Notifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Flunt.Notifications;
 
 namespace Authenticate.Domain.UseCases.Create
 {
@@ -13,14 +6,16 @@ namespace Authenticate.Domain.UseCases.Create
     {
         protected CreateResponse(){ }
 
+        // BADREQUEST CONSTRUCTOR
         public CreateResponse(string message, int status, IEnumerable<Notification>? notifications = null)
-        {
+        {  
             Message = message;
             Status = status;
             Notifications = notifications;
         }
 
-        public CreateResponse(string message, CreateResponseData data)
+        // OK CONSTRUCTOR
+        public CreateResponse(string message, CreateResponseData data) 
         {
             Message = message;
             Status = 201;
@@ -29,5 +24,7 @@ namespace Authenticate.Domain.UseCases.Create
         }
         public CreateResponseData? Data { get; set; }
     }
-    public record CreateResponseData(Guid Id, string Name, string Email);
+
+    // DADOS DA RESPOSTA
+    public record CreateResponseData(Guid Id, string Name, string Email); 
 }
