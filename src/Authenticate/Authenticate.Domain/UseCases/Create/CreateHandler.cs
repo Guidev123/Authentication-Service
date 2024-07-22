@@ -32,7 +32,8 @@ namespace Authenticate.Domain.UseCases.Create
                 return new CreateResponse("Something has failed", 500);
             }
 
-            // ============== GERAR ENTIDADES ==============
+
+            // ============== GERAR ENTIDADE ==============
             Email email;
             Password password;
             User user;
@@ -49,9 +50,41 @@ namespace Authenticate.Domain.UseCases.Create
                 return new CreateResponse(ex.Message, 400);
             }
 
+
             // ============== VALIDA SE O USUARIO JA EXISTE ==============
-            var exists = await _repository.ExistsAsync(request.Email, cancellationToken);
-            if (exists) return new CreateResponse("Your email already exists", 400);
+            try
+            {
+                var exists = await _repository.ExistsAsync(request.Email, cancellationToken);
+                if (exists) return new CreateResponse("Your email already exists", 400);
+            }
+            catch 
+            {
+                return new CreateResponse("Something has failed", 500);
+            }
+
+
+            // ============== PERSISTIR DADOS ==============
+            try
+            {
+                await _repository.SaveAsync(user, cancellationToken);
+            }
+            catch
+            {
+                return new CreateResponse("Something has failed", 500);
+            }
+
+
+            // ============== ENVIAR EMAIL PARA ATIVAR CONTA ==============
+            try
+            {
+                await _service.SendVerificationEmailAsync(user, cancellationToken);
+            }
+            catch
+            {
+                // (TO DO)
+            }
+
+            return new CreateResponse("Account has created", new CreateResponseData(user.Id, user.Name, user.Email));
         }
     }
 }
