@@ -10,6 +10,16 @@ namespace Authenticate.Domain.Configuration
     public static class SecurityConfiguration
     {
         public static SecurityKeys Secrets { get; set; } = new();
+        public static EmailConfig Email { get; set; } = new();
+
+        public class EmailConfig()
+        {
+            public string DefaultFromEmail { get; set; } = "verify@healtmanager.com";
+            public string DefaultFromName { get; set; } = "healthmanager";
+
+        }
+
+
         public class SecurityKeys
         {
             public static string ApiKey { get; set; } = string.Empty;
