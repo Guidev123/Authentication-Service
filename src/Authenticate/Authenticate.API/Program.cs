@@ -1,4 +1,5 @@
 using Authenticate.API.Configurations;
+using Authenticate.API.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,5 +21,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapEndpoints();
 
 app.Run();
