@@ -2,10 +2,11 @@
 using Authenticate.Domain.Entities;
 using Authenticate.Domain.UseCases.Create.Contracts;
 using Authenticate.Domain.ValueObjects;
+using MediatR;
 
 namespace Authenticate.Domain.UseCases.Create
 {
-    public class CreateHandler
+    public class CreateHandler : IRequestHandler<CreateRequest, CreateResponse>
     {
         private readonly IRepository _repository;
         private readonly IService _service;
@@ -18,7 +19,8 @@ namespace Authenticate.Domain.UseCases.Create
             _service = service;
         }
 
-        public async Task<Response> Handle(CreateRequest request, CancellationToken cancellationToken)
+        // MEDIATR METHOD
+        public async Task<CreateResponse> Handle(CreateRequest request, CancellationToken cancellationToken)
         {
             // ============== VALIDAR REQUISIÇÃO ==============
             try

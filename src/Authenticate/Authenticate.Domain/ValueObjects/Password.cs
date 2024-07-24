@@ -44,7 +44,7 @@ namespace Authenticate.Domain.ValueObjects
         {
             if (string.IsNullOrEmpty(password)) throw new Exception("Password should not be null or empty");
 
-            password += SecurityConfiguration.SecurityKeys.PasswordSaltKey;
+            password += ApiConfiguration.SecurityKeys.PasswordSaltKey;
 
             using var algorithm = new Rfc2898DeriveBytes(password, saltSize, iterations, HashAlgorithmName.SHA256);
             var key = Convert.ToBase64String(algorithm.GetBytes(keySize));
@@ -55,7 +55,7 @@ namespace Authenticate.Domain.ValueObjects
 
         private static bool Verify(string hash, string password, short keySize = 32, int iterations = 10000, char splitChar = '.')
         {
-            password += SecurityConfiguration.SecurityKeys.PasswordSaltKey;
+            password += ApiConfiguration.SecurityKeys.PasswordSaltKey;
 
             var parts = hash.Split(splitChar, 3);
             if (parts.Length != 3) return false;

@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace Authenticate.Domain.Configuration
 {
 
-    public static class SecurityConfiguration
+    public static class ApiConfiguration
     {
         public static SecurityKeys Secrets { get; set; } = new();
         public static EmailConfig Email { get; set; } = new();
+        public static SendGridConfiguration SendGrid { get; set; } = new();
 
         public class EmailConfig()
         {
@@ -18,7 +19,10 @@ namespace Authenticate.Domain.Configuration
             public string DefaultFromName { get; set; } = "healthmanager";
 
         }
-
+        public class SendGridConfiguration
+        {
+            public string ApiKey { get; set; } = string.Empty;
+        }
 
         public class SecurityKeys
         {

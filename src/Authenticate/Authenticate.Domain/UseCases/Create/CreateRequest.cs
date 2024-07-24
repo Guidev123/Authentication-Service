@@ -1,4 +1,6 @@
-﻿namespace Authenticate.Domain.UseCases.Create
+﻿using MediatR;
+
+namespace Authenticate.Domain.UseCases.Create
 {
-    public record CreateRequest(string Name, string Email, string Password);
+    public record CreateRequest(string Name, string Email, string Password) : IRequest<CreateResponse>;
 }
