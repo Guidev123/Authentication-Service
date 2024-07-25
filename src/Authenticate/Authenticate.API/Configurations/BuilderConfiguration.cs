@@ -72,20 +72,5 @@ namespace Authenticate.API.Configurations
         }
 
 
-        public static void AddDocumentationConfig(this WebApplicationBuilder builder)
-        {
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(x =>
-            {
-                x.CustomSchemaIds(n => n.FullName);
-            });
-        }
-
-        public static void ConfigureDevEnvironment(this WebApplication app)
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-            app.MapSwagger();/*RequireAuthorization();*/
-        }
     }
 }
