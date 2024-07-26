@@ -11,7 +11,7 @@ namespace Authenticate.Infra.UseCases.Create
     {
         public async Task SendVerificationEmailAsync(User user, CancellationToken cancellationToken)
         {
-            var client = new SendGridClient(ApiConfiguration.SecurityKeys.ApiKey);
+            var client = new SendGridClient(ApiConfiguration.SendGrid.ApiKey);
             var from = new EmailAddress(ApiConfiguration.Email.DefaultFromEmail, ApiConfiguration.Email.DefaultFromName);
 
             const string subject = "Verify account";
@@ -21,6 +21,7 @@ namespace Authenticate.Infra.UseCases.Create
 
             var msg = MailHelper.CreateSingleEmail(from, to, subject, content, content);
             await client.SendEmailAsync(msg, cancellationToken);
+
         }
     }
 }
