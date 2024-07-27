@@ -15,7 +15,7 @@ namespace Authenticate.API.Configurations
         public static string GenerateJwt(AuthenticateResponseData responseData)
         {
             var handler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(ApiConfiguration.SecurityKeys.JwtPrivateKey);
+            var key = Encoding.ASCII.GetBytes("43443FDFDF34DF34343fdf344SDFSDFSDFSDFSDF4545354345SDFGDFGDFGDFGdffgfdGDFGDGR");
             var credentials = new SigningCredentials(
                 new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature);

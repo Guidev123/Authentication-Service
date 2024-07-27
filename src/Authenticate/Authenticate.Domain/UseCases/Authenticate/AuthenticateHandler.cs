@@ -45,7 +45,7 @@ namespace Authenticate.Domain.UseCases.Authenticate
             // ============== VALIDA VERIFICACAO DA CONTA ==============
             try
             {
-                if (!user.Email.EmailVerification.IsActive) return new AuthenticateResponse("Your account is inactive", 400);
+                if (user.Email.EmailVerification.IsActive) return new AuthenticateResponse("Your account is inactive", 400);
             }
             catch
             {
