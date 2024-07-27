@@ -18,10 +18,7 @@ namespace Authenticate.API.Configurations
             ApiConfiguration.SecurityKeys.ApiKey =
                 builder.Configuration.GetSection("Secrets").GetValue<string>("ApiKey") ?? string.Empty;
 
-            ApiConfiguration.SecurityKeys.JwtPrivateKey =
-                builder.Configuration.GetSection("Secrets").GetValue<string>("JwtPrivateKey") ?? string.Empty;
-
-            ApiConfiguration.SecurityKeys.JwtPrivateKey =
+            ApiConfiguration.SecurityKeys.PasswordSaltKey =
                 builder.Configuration.GetSection("Secrets").GetValue<string>("PasswordSaltKey") ?? string.Empty;
 
             ApiConfiguration.SendGrid.ApiKey =
@@ -53,7 +50,7 @@ namespace Authenticate.API.Configurations
                     x.SaveToken = true;
                     x.TokenValidationParameters = new TokenValidationParameters
                     {
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(ApiConfiguration.SecurityKeys.JwtPrivateKey)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("43443FDFDF34DF34343fdf344SDFSDFSDFSDFSDF4545354345SDFGDFGDFGDFGdffgfdGDFGDGR")),
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
