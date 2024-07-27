@@ -35,8 +35,8 @@ namespace Authenticate.API.Configurations
             ci.AddClaim(new Claim("Id", responseData.Id));
             ci.AddClaim(new Claim(ClaimTypes.GivenName, responseData.Name));
             ci.AddClaim(new Claim(ClaimTypes.Name, responseData.Email));
-            foreach (var role in responseData.Roles)
-                ci.AddClaim(new Claim(ClaimTypes.Role, role));
+
+            foreach (var role in responseData.Roles) ci.AddClaim(new Claim(ClaimTypes.Role, role));
 
             return ci;
         }

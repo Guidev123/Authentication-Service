@@ -1,4 +1,5 @@
 ﻿using Authenticate.Domain.Entities;
+using Authenticate.Infra.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Authenticate.Infra
         public AccountDbContext(DbContextOptions<AccountDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Role> Roles { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

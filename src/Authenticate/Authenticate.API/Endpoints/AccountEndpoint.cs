@@ -1,4 +1,5 @@
-﻿using Authenticate.Domain.UseCases.Authenticate;
+﻿using Authenticate.API.Configurations;
+using Authenticate.Domain.UseCases.Authenticate;
 using Authenticate.Domain.UseCases.Create;
 using MediatR;
 
@@ -32,7 +33,9 @@ namespace Authenticate.API.Endpoints
                 var result = await handler.Handle(request, new CancellationToken());
 
                 if (!result.IsSuccess) return Results.Json(result, statusCode: result.Status);
-                return Results.Created($"api/authenticate-user/{result.Data?.Id}", result);
+                if (result.Data is null) return Results.Json(result, statusCode: 500);
+                result.Data.Token = JwtConfiguration.GenerateJwt(result.Data);
+                return Results.Ok(result);
             });
         }
     }

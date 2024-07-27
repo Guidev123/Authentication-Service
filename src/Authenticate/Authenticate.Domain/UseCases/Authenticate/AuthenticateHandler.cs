@@ -52,7 +52,6 @@ namespace Authenticate.Domain.UseCases.Authenticate
                 return new AuthenticateResponse("Something has failed", 500);
             }
 
-
             // ============== RETORNAR DADOS ==============
             try
             {
@@ -61,7 +60,7 @@ namespace Authenticate.Domain.UseCases.Authenticate
                     Id = user.Id.ToString(),
                     Name = user.Name,
                     Email = user.Email,
-                    Roles = Array.Empty<string>()
+                    Roles = user.Roles.Select(x => x.Name).ToArray()
                 };
 
                 return new AuthenticateResponse(string.Empty, data);

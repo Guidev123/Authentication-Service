@@ -15,7 +15,7 @@ namespace Authenticate.Infra.UseCases.Authenticate
         public Repository(AccountDbContext context) => _context = context;
 
         public async Task<User?> GetUserByEmail(string email, CancellationToken cancellationToken) =>
-            await _context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Email.Address == email, cancellationToken);
+            await _context.Users.AsNoTracking().Include(x => x.Roles).FirstOrDefaultAsync(x => x.Email.Address == email, cancellationToken);
         
     }
 }
